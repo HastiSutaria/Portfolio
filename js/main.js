@@ -1,8 +1,4 @@
-/* ===================================================================
- * Howdy - Main JS
- *
- * ------------------------------------------------------------------- */ 
-
+//main js 
 (function($) {
 
 	"use strict";
@@ -15,8 +11,7 @@
 	$WIN = $(window);
 
 	
-	/* Preloader 
-	 * -------------------------------------------------- */
+	//Preloader 
 	var ssPreloader = function() {
 
 		$WIN.on('load', function() {	
@@ -35,15 +30,12 @@
 	}; 
 
 
-	/* FitVids
-	------------------------------------------------------ */ 
+	//FitVids
 	var ssFitVids = function() {
 		$(".fluid-video-wrapper").fitVids();
 	};  		
 
    
-	/*	Masonry
-	------------------------------------------------------ */
 	var ssMasonryFolio = function() {
 
 		var containerBricks = $('.bricks-wrapper');
@@ -57,8 +49,7 @@
 	};
 
 
-	/*	Light Gallery
-	------------------------------------------------------- */
+	//Light Gallery
 	var ssLightGallery = function() {
 
 		$('#folio-wrap').lightGallery({  
@@ -69,8 +60,7 @@
 	};
 
 
-  	/* Menu on Scrolldown
-	 * ------------------------------------------------------ */
+  	/* Menu on Scrolldown */
 	var ssMenuOnScrolldown = function() {
 
 		var menuTrigger = $('#header-menu-trigger');
@@ -88,8 +78,7 @@
 	};
 
 	
-  	/* OffCanvas Menu
-	 * ------------------------------------------------------ */
+  	/* OffCanvas Menu */
    var ssOffCanvas = function() {
 
 	       var menuTrigger = $('#header-menu-trigger'),
@@ -122,8 +111,7 @@
    };
 
 
-  /* Smooth Scrolling
-	* ------------------------------------------------------ */
+  // Smooth Scrolling
 	var ssSmoothScroll = function() {
 
 		$('.smoothscroll').on('click', function (e) {
@@ -149,15 +137,14 @@
 	};
 
 
-  /* Placeholder Plugin Settings
-	* ------------------------------------------------------ */
+  // Placeholder Plugin Settings
+	
 	var ssPlaceholder = function() {
 		$('input, textarea, select').placeholder();  
 	};
 
 
-  /* Stat Counter
-  	*------------------------------------------------------- */
+  // Stat Counter
   	var ssStatCounter = function() {
 
 	   var statSection = $("#stats"),
@@ -189,8 +176,7 @@
   	};
 
 
-  	/* Alert Boxes
-  	------------------------------------------------------- */
+  	// alert boxes
   	var ssAlertBoxes = function() {
 
   		$('.alert-box').on('click', '.close', function() {
@@ -200,8 +186,8 @@
   	};	  	
 	
 
-  /* Animations
-	* ------------------------------------------------------- */
+  //Animations
+	
 	var ssAnimations = function() {
 
 		if (!$("html").hasClass('no-cssanimations')) {
@@ -241,8 +227,7 @@
 	};
 	
 
-  /* Intro Animation
-	* ------------------------------------------------------- */
+  // intro animation
 	var ssIntroAnimation = function() {
 
 		$WIN.on('load', function() {
@@ -268,54 +253,9 @@
 	};
 
 
-  /* Contact Form
-   * ------------------------------------------------------ */
-   var ssContactForm = function() {   	
-
-   	/* local validation */   	
-		$('#contactForm').validate({
-
-			/* submit via ajax */
-			submitHandler: function(form) {				
-				var sLoader = $('#submit-loader');			
-
-				$.ajax({   	
-			      type: "POST",
-			      url: "inc/sendEmail.php",
-			      data: $(form).serialize(),
-
-			      beforeSend: function() { 
-			      	sLoader.fadeIn(); 
-			      },
-			      success: function(msg) {
-		            // Message was sent
-		            if (msg == 'OK') {
-		            	sLoader.fadeOut(); 
-		               $('#message-warning').hide();
-		               $('#contactForm').fadeOut();
-		               $('#message-success').fadeIn();   
-		            }
-		            // There was an error
-		            else {
-		            	sLoader.fadeOut(); 
-		               $('#message-warning').html(msg);
-			            $('#message-warning').fadeIn();
-		            }
-			      },
-			      error: function() {
-			      	sLoader.fadeOut(); 
-			      	$('#message-warning').html("Something went wrong. Please try again.");
-			         $('#message-warning').fadeIn();
-			      }
-		      });    		
-	  		}
-
-		});
-   };	
-
+  
  
-  /* Back to Top
-	* ------------------------------------------------------ */
+  /* Back to top */
 	var ssBackToTop = function() {
 
 		var pxShow  = 500,         // height on which the button will show
@@ -336,8 +276,7 @@
 
 
 
-  /* Initialize
-	* ------------------------------------------------------ */
+  
 	(function ssInit() {
 
 		ssPreloader();
